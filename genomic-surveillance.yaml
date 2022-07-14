@@ -33,13 +33,6 @@ builds:
 # of the subsampling scheme below.
 subsampling:
   Cebu_scheme:
-    # Include all data from Idaho.
-    # When the workflow merges metadata from multiple
-    # inputs, it creates a boolean column for each input to
-    # indicate which input each record came from. A record
-    # from the "usa" input will have a value of "yes" in a
-    # column named "usa". The same record will have a column
-    # for the "nextregions" input with a value of "no".
     custom_sample:
       query: --query "(custom_data == 'yes')"
       # Limit the number of Idaho records included in the
@@ -47,7 +40,7 @@ subsampling:
       # number alone with the other "max_sequences" in the
       # sections below to keep your final build to <10,000
       # records.
-      max_sequences: 320
+      max_sequences: 50
     # To understand transmission patterns within the US that
     # led to introductions to Idaho, we select a subset of USA
     # data from states other than Idaho with priority given to
