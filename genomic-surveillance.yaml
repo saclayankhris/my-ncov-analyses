@@ -10,7 +10,7 @@ inputs:
     sequences: data/region7.sequences.fasta
   - name: background_data
     metadata: https://data.nextstrain.org/files/ncov/open/asia/metadata.tsv.xz
-    aligned: https://data.nextstrain.org/files/ncov/open/africa/aligned.fasta.xz
+    aligned: https://data.nextstrain.org/files/ncov/open/asia/aligned.fasta.xz
 
 # GenBank data includes "Wuhan-Hu-1/2019" which we use as the root for this build.
 refine:
