@@ -25,7 +25,7 @@ builds:
     subsampling_scheme: cebu_scheme
     # Defines colorings for input data sources
     # (e.g. "background_data" is "yes" or "no").
-    auspice_config: ncov-tutorial/auspice-config-custom-data.json
+    auspice_config: my-ncov-analyses/auspice-config-custom-data.json
 
 # Define a single subsampling scheme for Metro Cebu.
 # This analysis is for a specific date range, so we specify
