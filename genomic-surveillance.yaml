@@ -17,10 +17,10 @@ refine:
   root: "Wuhan-Hu-1/2019"
 
 # Define a single build for the state of interest, Idaho.
-# The build name will be "idaho" and it will use the custom
+# The build name will be "cebu and it will use the custom
 # subsampling scheme defined below.
 builds:
- Cebu:
+  cebu:
     title: "Cebu-specific genomic surveillance build"
     subsampling_scheme: cebu_scheme
     # Defines colorings for input data sources
@@ -33,6 +33,13 @@ builds:
 # of the subsampling scheme below.
 subsampling:
   Cebu_scheme:
+    # Include all data from Idaho.
+    # When the workflow merges metadata from multiple
+    # inputs, it creates a boolean column for each input to
+    # indicate which input each record came from. A record
+    # from the "usa" input will have a value of "yes" in a
+    # column named "usa". The same record will have a column
+    # for the "nextregions" input with a value of "no".
     custom_sample:
       query: --query "(custom_data == 'yes')"
       # Limit the number of Idaho records included in the
@@ -40,20 +47,20 @@ subsampling:
       # number alone with the other "max_sequences" in the
       # sections below to keep your final build to <10,000
       # records.
-      max_sequences: 50
+      max_sequences: 500
     # To understand transmission patterns within the US that
     # led to introductions to Idaho, we select a subset of USA
     # data from states other than Idaho with priority given to
     # strains that are genetically similar to the strains in
     # the "idaho" subsampling set defined above.
-    usa_context:
-      query: --query "(custom_data != 'yes') & (country == 'Philippines')"
+    Philippine_context:
+      query: --query "(custom_data != 'yes') & (country == 'Philippnes")
       # This value sets a hard upper limit on how many strains
       # make it into the analysis. Tune this value, based on
       # your needs for the resulting tree.
       max_sequences: 10
       # These group-by columns attempt to evenly sample across
-      # Philippines by year and month. Sequences in each group
+      # US states by year and month. Sequences in each group
       # of state, year, and month are prioritized by genetic
       # proximity.
       group_by: division year month
@@ -67,10 +74,10 @@ subsampling:
     # global context instead.
     global_context:
       query: --query "(custom_data != 'yes')"
-      # As with the contextual data from the Philippines above, tune
+      # As with the contextual data from the USA above, tune
       # this value to get a reasonable number of strains in
       # your build.
-      max_sequences: 10
+      max_sequences: 5
       priorities:
         type: proximity
         focus: custom_sample
