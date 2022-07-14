@@ -22,7 +22,7 @@ subsampling:
   cebu_scheme:
     custom_sample:
       query: --query "(custom_data == 'yes')"
-      max_sequences: 500
+      max_sequences: 50
     phil_context:
       query: --query "(custom_data != 'yes') & (country == 'Philippines')"
       max_sequences: 5
